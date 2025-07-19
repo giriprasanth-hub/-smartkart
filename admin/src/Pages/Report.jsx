@@ -18,7 +18,7 @@ function Report() {
 
   const fetchCustomers = async () => {
     try {
-      const res = await axios.get("http://localhost:3333/user");
+      const res = await axios.get("https://smartkart-server-058l.onrender.com/user");
       setAllCustomers(res.data);
     } catch (err) {
       console.error("Failed to fetch customers", err);
@@ -27,7 +27,7 @@ function Report() {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:3333/products");
+      const res = await axios.get("https://smartkart-server-058l.onrender.com/products");
       setAllProducts(res.data);
     } catch (err) {
       console.error("Failed to fetch products", err);
@@ -44,7 +44,7 @@ function Report() {
         endDate,
       };
 
-      const res = await axios.get("http://localhost:3333/orders/report", { params });
+      const res = await axios.get("https://smartkart-server-058l.onrender.com/orders/report", { params });
       setReportData(res.data);
     } catch (err) {
       console.error("Report fetch failed", err);

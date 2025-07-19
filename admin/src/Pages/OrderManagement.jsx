@@ -11,7 +11,7 @@ function OrderManagement() {
 
   const fetchOrders = async () => {
     try {
-      const res = await axios.get("http://localhost:3333/orders");
+      const res = await axios.get("https://smartkart-server-058l.onrender.com/orders");
       setOrders(res.data);
     } catch (error) {
       console.error("Error fetching orders:", error);

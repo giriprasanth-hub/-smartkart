@@ -29,7 +29,7 @@ function AddCustomer() {
 
     try {
       const { confirmPassword, ...userData } = form;
-      await axios.post('http://localhost:3333/user/create', userData);
+      await axios.post('https://smartkart-server-058l.onrender.com/user/create', userData);
       alert("Customer created successfully!");
       navigate(`/admin/${localStorage.getItem("adminId")}/customers`);
     } catch (err) {

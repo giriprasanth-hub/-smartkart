@@ -25,7 +25,7 @@ function Signup() {
 
     try {
       if (formdata.password === formdata.confirm_password) {
-        await axios.post("http://localhost:3333/admin/create", {
+        await axios.post("https://smartkart-server-058l.onrender.com/admin/create", {
           name: formdata.name,
           email: formdata.email,
           password: formdata.password,

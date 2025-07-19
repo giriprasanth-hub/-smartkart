@@ -16,7 +16,7 @@ function Settings() {
   useEffect(() => {
     if (!adminId) return;
 
-    axios.get("http://localhost:3333/settings", { params: { adminId } })
+    axios.get("https://smartkart-server-058l.onrender.com/settings", { params: { adminId } })
       .then(res => res.data && setSettings(res.data))
       .catch(() => console.warn("No settings found"));
   }, []);
@@ -32,7 +32,7 @@ function Settings() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put("http://localhost:3333/settings", {
+      await axios.put("https://smartkart-server-058l.onrender.com/settings", {
         adminId,
         ...settings
       });

@@ -53,13 +53,18 @@ mongoose
   .then(() => {
     console.log("MongoDB connected successfully");
 
-    server.listen(3333, (err) => {
-      if (err) {
-        console.log("Server error:", err);
-      } else {
-        console.log("Server running on port 3333");
-      }
-    });
+    // server.listen(3333, (err) => {
+    //   if (err) {
+    //     console.log("Server error:", err);
+    //   } else {
+    //     console.log("Server running on port 3333");
+    //   }
+    // });
+    const PORT = process.env.PORT || 3333;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
   })
   .catch((err) => {
     console.log("MongoDB connection error:", err);

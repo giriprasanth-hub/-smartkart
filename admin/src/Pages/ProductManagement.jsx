@@ -12,7 +12,7 @@ function ProductManagement() {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:3333/products");
+      const res = await axios.get("https://smartkart-server-058l.onrender.com/products");
       setProducts(res.data);
     } catch (err) {
       console.error("Error fetching products", err);
@@ -28,7 +28,7 @@ function ProductManagement() {
     if (!confirm) return;
 
     try {
-      await axios.delete(`http://localhost:3333/products/${productId}`);
+      await axios.delete(`https://smartkart-server-058l.onrender.com/products/${productId}`);
       fetchProducts(); // refresh product list
     } catch (err) {
       console.error("Error deleting product", err);
