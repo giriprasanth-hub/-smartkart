@@ -14,7 +14,7 @@ function AdminLogin() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post("http://localhost:3333/admin/login", {
+            const res = await axios.post("https://smartkart-server-058l.onrender.com/admin/login", {
                 email: fdata.email, 
                 password: fdata.password
             });
