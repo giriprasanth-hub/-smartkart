@@ -13,7 +13,7 @@ function StockManagement() {
   // Fetch all products
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:3333/products");
+      const res = await axios.get("https://smartkart-server-058l.onrender.com/products");
       setProducts(res.data);
     } catch (err) {
       console.error("Failed to fetch products", err);
@@ -52,7 +52,7 @@ function StockManagement() {
     if (!selectedProduct) return alert("Select a product first");
     try {
       const updatedStock = selectedProduct.stock + Number(stockQty);
-      await axios.put(`http://localhost:3333/products/${selectedProduct._id}`, {
+      await axios.put(`https://smartkart-server-058l.onrender.com/products/${selectedProduct._id}`, {
         stock: updatedStock,
       });
       fetchProducts();
