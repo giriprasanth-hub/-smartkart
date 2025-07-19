@@ -40,7 +40,7 @@ function AddProduct() {
                 const formData = new FormData();
                 formData.append("image", imageFile);
 
-                const uploadRes = await axios.post("http://localhost:3333/products/upload", formData, {
+                const uploadRes = await axios.post("https://smartkart-server-058l.onrender.com/products/upload", formData, {
                     headers: { "Content-Type": "multipart/form-data" }
                 });
 
