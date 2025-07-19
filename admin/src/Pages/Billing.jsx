@@ -46,7 +46,7 @@ function Billing() {
     const searchCustomer = async (query) => {
         if (!query) return setCustomers([]);
         try {
-            const res = await axios.get(`http://localhost:3333/user?name=${query}`);
+            const res = await axios.get(`https://smartkart-server-058l.onrender.com/user?name=${query}`);
             setCustomers(res.data);
         } catch (err) {
             console.error('Customer search error:', err);
