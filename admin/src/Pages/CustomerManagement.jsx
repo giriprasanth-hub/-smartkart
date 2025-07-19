@@ -7,11 +7,11 @@ function CustomerManagement() {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3333/user")
+    axios.get("https://smartkart-server-058l.onrender.com/user")
       .then(res => setCustomers(res.data))
       .catch(err => console.error("Failed to fetch users", err));
 
-    axios.get("http://localhost:3333/orders")
+    axios.get("https://smartkart-server-058l.onrender.com/orders")
       .then(res => setOrders(res.data))
       .catch(err => console.error("Failed to fetch orders", err));
   }, []);
