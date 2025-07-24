@@ -14,7 +14,7 @@ function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post("http://localhost:3333/user/login", fdata);
+            const res = await axios.post("https://smartkart-server-058l.onrender.com/user/login", fdata);
             const { token, userId } = res.data;
 
             localStorage.setItem("authToken", token);

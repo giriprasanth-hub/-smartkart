@@ -22,7 +22,7 @@ function HomeHeader({ searchText, setSearchText, showSearch = true }) {
     const fetchUser = async () => {
       try {
         if (!userId) return;
-        const res = await axios.get(`http://localhost:3333/user/${userId}`);
+        const res = await axios.get(`https://smartkart-server-058l.onrender.com/user/${userId}`);
         setUserName(res.data.name);
       } catch (err) {
         console.error("Failed to fetch user name:", err);
@@ -32,7 +32,7 @@ function HomeHeader({ searchText, setSearchText, showSearch = true }) {
     const fetchCart = async () => {
       try {
         if (!userId) return;
-        const res = await axios.get(`http://localhost:3333/cart/${userId}`);
+        const res = await axios.get(`https://smartkart-server-058l.onrender.com/cart/${userId}`);
         const items = res.data?.items || [];
         const totalQty = items.reduce((acc, item) => acc + item.quantity, 0);
         setCartCount(totalQty);

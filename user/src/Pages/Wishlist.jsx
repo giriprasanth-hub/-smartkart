@@ -12,7 +12,7 @@ function Wishlist() {
 
   const fetchWishlist = async () => {
     try {
-      const res = await axios.get(`http://localhost:3333/wishlist/${userId}`);
+      const res = await axios.get(`https://smartkart-server-058l.onrender.com/wishlist/${userId}`);
       setWishlist(res.data.items || []);
     } catch (err) {
       console.error("Error fetching wishlist", err);
@@ -21,7 +21,7 @@ function Wishlist() {
 
   const handleRemove = async (productId) => {
     try {
-      await axios.delete(`http://localhost:3333/wishlist/${userId}/${productId}`);
+      await axios.delete(`https://smartkart-server-058l.onrender.com/${userId}/${productId}`);
       fetchWishlist();
     } catch (err) {
       console.error("Failed to remove product", err);
@@ -30,7 +30,7 @@ function Wishlist() {
 
   const handleAddToCart = async (productId) => {
     try {
-      await axios.post("http://localhost:3333/cart/add", {
+      await axios.post("https://smartkart-server-058l.onrender.com/cart/add", {
         userId,
         productId,
         quantity: 1

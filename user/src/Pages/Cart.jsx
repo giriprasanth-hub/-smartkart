@@ -31,7 +31,7 @@ function Cart() {
         }
 
         try {
-            const res = await axios.put(`http://localhost:3333/cart/update/${cart.userId}`, {
+            const res = await axios.put(`https://smartkart-server-058l.onrender.com/cart/update/${cart.userId}`, {
                 productId,
                 quantity: newQuantity,
             });

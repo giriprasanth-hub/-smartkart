@@ -86,9 +86,9 @@ function Home() {
     const newQty = (item?.quantity || 0) + change;
 
     if (newQty <= 0) {
-      await axios.delete(`http://localhost:3333/cart/${userId}/${productId}`);
+      await axios.delete(`https://smartkart-server-058l.onrender.com/cart/${userId}/${productId}`);
     } else {
-      await axios.put(`http://localhost:3333/cart/update/${userId}`, {
+      await axios.put(`https://smartkart-server-058l.onrender.com/cart/update/${userId}`, {
         productId,
         quantity: newQty
       });
@@ -118,7 +118,7 @@ function Home() {
       const alreadyWishlisted = isWishlisted(productId);
 
       if (alreadyWishlisted) {
-        await axios.delete(`http://localhost:3333/wishlist/${userId}/${productId}`);
+        await axios.delete(`https://smartkart-server-058l.onrender.com/wishlist/${userId}/${productId}`);
         setWishlist(prev => ({
           ...prev,
           items: prev.items.filter(item =>
@@ -128,7 +128,7 @@ function Home() {
           )
         }));
       } else {
-        await axios.post("http://localhost:3333/wishlist/add", {
+        await axios.post("https://smartkart-server-058l.onrender.com/wishlist/add", {
           userId,
           productId
         });

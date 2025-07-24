@@ -80,13 +80,13 @@ function OrderSummary() {
     try {
       if (editingAddress) {
         
-        await axios.put(`http://localhost:3333/userextras/address/${editingAddress._id}`, {
+        await axios.put(`https://smartkart-server-058l.onrender.com/userextras/address/${editingAddress._id}`, {
           userId,
           ...form
         });
       } else {
         
-        await axios.post("http://localhost:3333/userextras/address", {
+        await axios.post("https://smartkart-server-058l.onrender.com/userextras/address", {
           userId,
           ...form
         });

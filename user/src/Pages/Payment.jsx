@@ -27,7 +27,7 @@ function Payment() {
 
     const fetchCart = async () => {
         try {
-            const res = await axios.get(`http://localhost:3333/cart/${userId}`);
+            const res = await axios.get(`https://smartkart-server-058l.onrender.com/cart/${userId}`);
             setCart(res.data);
         } catch (err) {
             console.error("Cart fetch failed:", err);
@@ -36,7 +36,7 @@ function Payment() {
 
     const fetchUser = async () => {
         try {
-            const res = await axios.get(`http://localhost:3333/user/${userId}`);
+            const res = await axios.get(`https://smartkart-server-058l.onrender.com/user/${userId}`);
             setUser(res.data);
         } catch (err) {
             console.error("User fetch failed:", err);
@@ -66,7 +66,7 @@ function Payment() {
         };
 
         try {
-            const res = await axios.post("http://localhost:3333/orders", orderData);
+            const res = await axios.post("https://smartkart-server-058l.onrender.com/orders", orderData);
             if (res.status === 200) {
                 navigate(`/user/${userId}/cart/ordersummary/payment/success`);
             } else {

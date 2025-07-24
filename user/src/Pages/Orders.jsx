@@ -14,7 +14,7 @@ function Orders() {
 
   const fetchOrders = async () => {
     try {
-      const res = await axios.get(`http://localhost:3333/orders?userId=${userId}`);
+      const res = await axios.get(`https://smartkart-server-058l.onrender.com/orders?userId=${userId}`);
       setOrders(res.data);
     } catch (err) {
       console.error("Failed to fetch orders:", err);
@@ -23,7 +23,7 @@ function Orders() {
 
   const cancelOrder = async (orderId) => {
     try {
-      const res = await axios.put(`http://localhost:3333/orders/${orderId}/cancel`);
+      const res = await axios.put(`https://smartkart-server-058l.onrender.com/orders/${orderId}/cancel`);
       alert("Order Cancelled Successfully");
       fetchOrders();
     } catch (err) {

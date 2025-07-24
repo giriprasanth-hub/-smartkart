@@ -14,7 +14,7 @@ function ProductDetail() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await axios.get(`http://localhost:3333/products/${id}`);
+        const res = await axios.get(`https://smartkart-server-058l.onrender.com/products/${id}`);
         const productData = res.data;
         setProduct(productData);
         setMainImage(productData.images?.[0] || productData.image);
@@ -34,7 +34,7 @@ function ProductDetail() {
     }
 
     try {
-      await axios.post("http://localhost:3333/cart/add", {
+      await axios.post("https://smartkart-server-058l.onrender.com/cart/add", {
         userId,
         productId: product._id,
         quantity: 1

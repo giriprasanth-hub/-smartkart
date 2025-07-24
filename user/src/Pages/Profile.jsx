@@ -142,14 +142,14 @@ function Profile() {
   const handleAddCard = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3333/userextras/card", {
+      await axios.post("https://smartkart-server-058l.onrender.com/userextras/card", {
         ...newCard,
         userId,
       });
       alert("Card added!");
       setShowCardForm(false);
       setNewCard({ cardNumber: "", cardType: "" });
-      const res = await axios.get(`http://localhost:3333/userextras/card/${userId}`);
+      const res = await axios.get(`https://smartkart-server-058l.onrender.com/userextras/card/${userId}`);
       setCards(res.data);
     } catch (err) {
       console.error("Error saving card", err);
