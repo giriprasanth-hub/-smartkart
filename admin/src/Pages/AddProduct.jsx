@@ -50,7 +50,7 @@ function AddProduct() {
 
             const finalProduct = { ...product, image: imagePath };
 
-            await axios.post("http://localhost:3333/products/bulk", [finalProduct]); // Using bulk save
+            await axios.post("https://smartkart-server-058l.onrender.com/products/bulk", [finalProduct]); // Using bulk save
             alert("Product added!");
             navigate(-1); // go back
         } catch (error) {
