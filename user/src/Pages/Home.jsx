@@ -12,12 +12,12 @@ function Home() {
   const userId = localStorage.getItem("userId");
 
   const categories = [
-    { id: "stap", name: "Staples", image: "https://rukminim2.flixcart.com/flap/128/128/image/50474c.jpg?q=100" },
-    { id: "snack", name: "Snacks & Beverages", image: "https://rukminim2.flixcart.com/flap/128/128/image/9fbd36.jpg?q=100" },
-    { id: "food", name: "Packaged Food", image: "https://rukminim2.flixcart.com/flap/128/128/image/ac8550.jpg?q=100" },
-    { id: "baby", name: "Personal & Baby Care", image: "https://rukminim2.flixcart.com/flap/128/128/image/7670e2.jpg?q=100" },
-    { id: "house", name: "Household Care", image: "https://rukminim2.flixcart.com/flap/128/128/image/b7ade9.jpg?q=100" },
-    { id: "dairy", name: "Dairy & Eggs", image: "https://rukminim2.flixcart.com/flap/128/128/image/8014b1.jpg?q=100" }
+    { id: "stap", name: "Staples", image: "/img/staples.webp" },
+    { id: "snack", name: "Snacks & Beverages", image: "/img/snacks.webp" },
+    { id: "food", name: "Packaged Food", image: "/img/pakage.webp" },
+    { id: "baby", name: "Personal & Baby Care", image: "/img/personal.webp" },
+    { id: "house", name: "Household Care", image: "/img/household.webp" },
+    { id: "dairy", name: "Dairy & Eggs", image: "/img/dairy.webp" }
   ];
 
   useEffect(() => {
@@ -98,13 +98,13 @@ function Home() {
   };
 
   const getCartQty = (productId) => {
-  const item = cartItems.find((item) => {
-    if (!item || !item.productId) return false;
-    const idToCompare = typeof item.productId === 'object' ? item.productId._id : item.productId;
-    return idToCompare === productId;
-  });
-  return item ? item.quantity : 0;
-};
+    const item = cartItems.find((item) => {
+      if (!item || !item.productId) return false;
+      const idToCompare = typeof item.productId === 'object' ? item.productId._id : item.productId;
+      return idToCompare === productId;
+    });
+    return item ? item.quantity : 0;
+  };
 
   const isWishlisted = (productId) =>
     wishlist.items.some(item =>

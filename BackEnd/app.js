@@ -17,6 +17,8 @@ const settings = require("./Routes/settings")
 const cors = require("cors");
 
 app.use(cors());
+app.use("/img", express.static(path.join(__dirname, "Builds/user/img")));
+
 app.use(express.json());
 app.use("/uploads", express.static("uploads"));
 
