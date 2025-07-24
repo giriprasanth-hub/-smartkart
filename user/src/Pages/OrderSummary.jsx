@@ -30,7 +30,7 @@ function OrderSummary() {
 
   const fetchUser = async () => {
     try {
-      const { data } = await axios.get(`http://localhost:3333/user/${userId}`);
+      const { data } = await axios.get(`https://smartkart-server-058l.onrender.com/user/${userId}`);
       setUser(data);
     } catch (err) {
       console.error("Error fetching user", err);
@@ -39,7 +39,7 @@ function OrderSummary() {
 
   const fetchCart = async () => {
     try {
-      const { data } = await axios.get(`http://localhost:3333/cart/${userId}`);
+      const { data } = await axios.get(`https://smartkart-server-058l.onrender.com/cart/${userId}`);
       setCart(data);
     } catch (err) {
       console.error("Failed to fetch cart:", err);
@@ -48,8 +48,8 @@ function OrderSummary() {
 
   const fetchAddresses = async () => {
     try {
-      const { data } = await axios.get(`http://localhost:3333/userextras/address/${userId}`);
-      setAddresses(data);
+      const { data } = await axios.get(`https://smartkart-server-058l.onrender.com/userextras/address/${userId}`);
+      setAddresses(data)
       if (data.length > 0) setSelectedAddressId(data[0]._id);
     } catch (err) {
       console.error("Failed to fetch addresses:", err);

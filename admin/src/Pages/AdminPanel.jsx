@@ -11,7 +11,7 @@ function AdminPanel() {
 //   useEffect(() => {
 //     const fetchAdminData = async () => {
 //       try {
-//         const res = await axios.get(`http://localhost:3333/admin/${adminId}/dashboard`, {
+//         const res = await axios.get(`https://smartkart-server-058l.onrender.com/admin/${adminId}/dashboard`, {
 //           headers: {
 //             Authorization: `Bearer ${token}`
 //           }

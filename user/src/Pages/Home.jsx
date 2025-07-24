@@ -28,7 +28,7 @@ function Home() {
 
   const getProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:3333/products");
+      const res = await axios.get("https://smartkart-server-058l.onrender.com/products");
       if (res.status === 200) setAllProducts(res.data);
     } catch {
       alert("Error fetching products");
@@ -37,7 +37,7 @@ function Home() {
 
   const fetchCart = async () => {
     try {
-      const res = await axios.get(`http://localhost:3333/cart/${userId}`);
+      const res = await axios.get(`https://smartkart-server-058l.onrender.com/cart/${userId}`);
       if (res.status === 200) setCartItems(res.data.items || []);
     } catch {
       console.warn("Cart fetch failed");
@@ -47,7 +47,7 @@ function Home() {
 
   const fetchWishlist = async () => {
     try {
-      const res = await axios.get(`http://localhost:3333/wishlist/${userId}`);
+      const res = await axios.get(`https://smartkart-server-058l.onrender.com/wishlist/${userId}`);
       if (res.status === 200 && res.data?.items) {
         const normalizedItems = res.data.items.map(item => ({
           ...item,
@@ -65,7 +65,7 @@ function Home() {
     if (!userId) return alert("User not logged in");
 
     try {
-      await axios.post("http://localhost:3333/cart/add", {
+      await axios.post("https://smartkart-server-058l.onrender.com/cart/add", {
         userId,
         productId,
         quantity: 1

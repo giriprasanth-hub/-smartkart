@@ -81,7 +81,7 @@ function ProductManagement() {
                     src={
                       prod.image?.includes("http")
                         ? prod.image
-                        : `http://localhost:3333${prod.image}`
+                        : `https://smartkart-server-058l.onrender.com${prod.image}`
                     }
                     alt="Product"
                     width="50"

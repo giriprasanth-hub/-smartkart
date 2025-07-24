@@ -41,11 +41,11 @@ function Profile() {
     const fetchAll = async () => {
       try {
         const [userRes, addrRes, cardRes, upiRes, giftRes] = await Promise.all([
-          axios.get(`http://localhost:3333/user/${userId}`),
-          axios.get(`http://localhost:3333/userextras/address/${userId}`),
-          axios.get(`http://localhost:3333/userextras/card/${userId}`),
-          axios.get(`http://localhost:3333/userextras/upi/${userId}`),
-          axios.get(`http://localhost:3333/userextras/giftcard/${userId}`),
+          axios.get(`https://smartkart-server-058l.onrender.com/user/${userId}`),
+          axios.get(`https://smartkart-server-058l.onrender.com/userextras/address/${userId}`),
+          axios.get(`https://smartkart-server-058l.onrender.com/userextras/card/${userId}`),
+          axios.get(`https://smartkart-server-058l.onrender.com/userextras/upi/${userId}`),
+          axios.get(`https://smartkart-server-058l.onrender.com/userextras/giftcard/${userId}`),
         ]);
         setUser(userRes.data);
         setEditableUser(userRes.data);
@@ -66,7 +66,7 @@ function Profile() {
 
   const handleSaveUser = async () => {
     try {
-      await axios.put(`http://localhost:3333/user/${userId}`, editableUser);
+      await axios.put(`https://smartkart-server-058l.onrender.com/user/${userId}`, editableUser);
       setUser(editableUser);
       setEditMode(false);
       alert("Profile Updated");
@@ -83,14 +83,14 @@ function Profile() {
   const handleAddAddress = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3333/userextras/address", {
+      await axios.post("https://smartkart-server-058l.onrender.com/userextras/address", {
         ...newAddress,
         userId,
       });
       alert("Address saved!");
       setShowAddressForm(false);
       setNewAddress({ addressLine: "", city: "", state: "", pincode: "", country: "" });
-      const res = await axios.get(`http://localhost:3333/userextras/address/${userId}`);
+      const res = await axios.get(`https://smartkart-server-058l.onrender.com/userextras/address/${userId}`);
       setAddresses(res.data);
     } catch (err) {
       console.error("Error saving address", err);
@@ -100,7 +100,7 @@ function Profile() {
   const handleAddUpi = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3333/userextras/upi", {
+      await axios.post("https://smartkart-server-058l.onrender.com/userextras/upi", {
         userId,
         upiId: newUpi,
         verified: false,
@@ -108,7 +108,7 @@ function Profile() {
       alert("UPI ID added!");
       setShowUpiForm(false);
       setNewUpi("");
-      const res = await axios.get(`http://localhost:3333/userextras/upi/${userId}`);
+      const res = await axios.get(`https://smartkart-server-058l.onrender.com/userextras/upi/${userId}`);
       setUpis(res.data);
     } catch (err) {
       console.error("Error adding UPI ID:", err);
@@ -119,7 +119,7 @@ function Profile() {
   const handleAddGiftCard = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3333/userextras/giftcard", {
+      await axios.post("https://smartkart-server-058l.onrender.com/userextras/giftcard", {
         userId,
         amount: giftAmount,
         isUsed: false,
@@ -127,7 +127,7 @@ function Profile() {
       alert("Gift card added!");
       setShowGiftCardForm(false);
       setGiftAmount("");
-      const res = await axios.get(`http://localhost:3333/userextras/giftcard/${userId}`);
+      const res = await axios.get(`https://smartkart-server-058l.onrender.com/userextras/giftcard/${userId}`);
       setGiftCards(res.data);
     } catch (err) {
       console.error("Error adding gift card", err);

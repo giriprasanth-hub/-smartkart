@@ -16,7 +16,7 @@ function Billing() {
     const total = cart.reduce((sum, item) => sum + getPrice(item) * item.qty, 0);
 
     useEffect(() => {
-        axios.get('http://localhost:3333/products')
+        axios.get('https://smartkart-server-058l.onrender.com/products')
             .then(res => setProducts(res.data))
             .catch(err => console.error("Product fetch error:", err));
     }, []);
@@ -89,7 +89,7 @@ function Billing() {
 
     const saveOrder = async () => {
         try {
-            await axios.post("http://localhost:3333/orders", {
+            await axios.post("https://smartkart-server-058l.onrender.com/orders", {
                 userId: selectedCustomer?._id || null,
                 products: cart.map(i => i._id),
                 totalAmount: total,

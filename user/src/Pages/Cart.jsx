@@ -9,7 +9,7 @@ function Cart() {
 
     const fetchCart = async () => {
         try {
-            const res = await axios.get(`http://localhost:3333/cart/${userId}`);
+            const res = await axios.get(`https://smartkart-server-058l.onrender.com/cart/${userId}`);
             setCart(res.data);
         } catch (err) {
             console.error("Failed to load cart:", err);

@@ -3,7 +3,8 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function Signup() {
-  //http://localhost:3333
+  //https://smartkart-server-058l.onrender.com
+
   const [errorMessage, setErrorMessage] = useState("");
   const [formdata, setFormdata] = useState({
     email: "", name: "", phoneNumber: "", address: "", password: "", confirm_password: ""
