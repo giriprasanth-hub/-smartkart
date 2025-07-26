@@ -1,24 +1,16 @@
-import axios from 'axios'
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import axios from 'axios';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Signup() {
-  //https://smartkart-server-058l.onrender.com
-
   const [errorMessage, setErrorMessage] = useState("");
   const [formdata, setFormdata] = useState({
     email: "", name: "", phoneNumber: "", address: "", password: "", confirm_password: ""
-  })
+  });
 
   const handlechange = (e) => {
-    setFormdata((prev) => {
-      let newData = {
-        ...prev,
-        [e.target.name]: e.target.value
-      }
-      return newData
-    })
-  }
+    setFormdata((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,62 +25,45 @@ function Signup() {
           address: formdata.address,
           phoneNumber: formdata.phoneNumber,
         });
-        alert("User created successfully! You can now login."); 
-
-
+        alert("User created successfully! You can now login.");
       } else {
         setErrorMessage("Passwords do not match");
       }
     } catch (error) {
-      if (error.response && error.response.data && error.response.data.message) {
-        alert(error.response.data.message);
-      } else {
-        alert("Something went wrong. Please try again.");
-      }
+      alert(error.response?.data?.message || "Something went wrong. Please try again.");
     }
   };
 
-
   return (
-    <>
-      <div className='sign-container'>
-        <form className='sign-form' onSubmit={handleSubmit}>
-          <h1>SignUp Form</h1>
-          <input className='sign-input'
-            placeholder='Email'
-            type="email"
-            name="email"
-            onChange={handlechange}
-            value={formdata.email}
-          />
-          <input className='sign-input'
-            placeholder='Full Name'
-            name="name"
-            onChange={handlechange}
-            value={formdata.name}
-          />
-          <input className='sign-input'
-            placeholder='Password'
-            type='password' name="password" onChange={handlechange} value={formdata.password} />
-          <input className='sign-input'
-            placeholder='Confirm Password'
-            type='password' name="confirm_password" onChange={handlechange} value={formdata.confirm_password} />
-          <input className='sign-input'
-            placeholder='Mobile No'
-            type='tel' name="phoneNumber" onChange={handlechange} value={formdata.phoneNumber} />
-          <input className='sign-input'
-            placeholder='Address For Delivery'
-            name="address"
-            onChange={handlechange}
-            value={formdata.address}
-          />
+    <div className='sign-container'>
+      <form className='sign-form' onSubmit={handleSubmit}>
+        <h1>SignUp Form</h1>
 
-          <button className='sign-btn' type='submit'>Sign up</button>
-          <p>Have an account with us? <Link to="/">Login </Link></p>
-        </form>
-      </div>
-    </>
-  )
+        <input className='sign-input' placeholder='Email' type="email" name="email"
+          onChange={handlechange} value={formdata.email} />
+
+        <input className='sign-input' placeholder='Full Name' name="name"
+          onChange={handlechange} value={formdata.name} />
+
+        <input className='sign-input' placeholder='Password' type='password'
+          name="password" onChange={handlechange} value={formdata.password} />
+
+        <input className='sign-input' placeholder='Confirm Password' type='password'
+          name="confirm_password" onChange={handlechange} value={formdata.confirm_password} />
+
+        <input className='sign-input' placeholder='Mobile No' type='tel'
+          name="phoneNumber" onChange={handlechange} value={formdata.phoneNumber} />
+
+        <input className='sign-input' placeholder='Address For Delivery'
+          name="address" onChange={handlechange} value={formdata.address} />
+
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+
+        <button className='sign-btn' type='submit'>Sign up</button>
+        <p className="sign-link">Have an account with us? <Link to="/">Login</Link></p>
+      </form>
+    </div>
+  );
 }
 
-export default Signup
+export default Signup;

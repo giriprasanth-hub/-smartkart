@@ -1,94 +1,207 @@
+/* Container centers form on all devices */
 .login-Container {
   display: flex;
-  height: 100vh;
   justify-content: center;
   align-items: center;
+  height: 100vh;
   background-color: black;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-.login-form{
-  width: 30%;
-  padding: 20px ;
-  background-color: aqua;
-  border-radius: 40px;
-  box-shadow: 0px 50px 100px rgba(36, 184, 174, 0.3);
+/* Form styling */
+.login-form {
+  background-color: beige;
+  width: 100%;
+  max-width: 400px; /* Prevents large form on bigger screens */
+  padding: 20px 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: ease-in-out 0.3s; 
-}
-.login-form:hover{
-   box-shadow: 0px 100px 200px rgba(36, 184, 174, 0.4);
-   transform: translatey(-5px);
-}
-
-.login-input {
-  display: inline-block;
-  width: 80%;
-  border-radius: 15px;
-  font-size: 14px;
-  padding: 10px 15px;
-  margin: 10px 0px;
-  border: 2px solid transparent;
-  box-shadow: 0px 5px 10px rgb(188, 215, 244);
+  border: 5px transparent solid;
+  border-radius: 30px;
+  box-shadow: 0px 5px 10px rgb(132, 114, 49);
   transition: ease-in-out 0.3s;
 }
-.login-input:hover{
-  box-shadow: 0px 15px 20px rgb(188, 215, 344);
+
+.login-form:hover {
+  box-shadow: 0px 15px 30px rgb(132, 114, 53);
   transform: translateY(-5px);
 }
 
+/* Input Fields */
+.login-input {
+  width: 100%;
+  border: 5px transparent solid;
+  border-radius: 20px;
+  margin: 10px 0;
+  padding: 12px;
+  box-shadow: 0px 5px 10px rgb(132, 114, 49);
+  transition: ease-in-out 0.3s;
+  font-size: 16px;
+}
+
+.login-input:focus {
+  outline: none;
+  box-shadow: 0px 15px 30px rgb(132, 114, 52);
+}
+
+/* Button */
 .login-btn {
+  width: 70%;
+  margin-top: 20px;
+  padding: 12px;
+  border: 5px transparent solid;
+  background-color: rgb(20, 175, 226);
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0px 5px 10px rgb(132, 114, 49);
+  transition: ease-in-out 0.3s;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  box-shadow: 0px 15px 30px rgb(132, 114, 52);
+  transform: translateY(-3px);
+}
+
+/* Responsive typography */
+.login-header {
+  font-size: 28px;
+  text-align: center;
+}
+
+/* Paragraph & link styling */
+.login-form p {
   font-size: 14px;
-  text-transform: capitalize;
-  padding: 8px 15px;
-  border: 2px solid transparent;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
-  border-radius: 50px;
-  display: block;
-  margin: 15px auto;
-  width: 50%;
-  background-color: orange;
-  transition: ease-in 0.8s;
-  
+  text-align: center;
 }
-.login-btn:hover{
-  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
-  transform: translateY(-5px);
+
+/* Responsive breakpoints */
+@media (max-width: 768px) {
+  .login-form {
+    padding: 20px;
+    width: 90%;
+  }
+
+  .login-btn {
+    width: 80%;
+    font-size: 14px;
+  }
 }
+
+@media (max-width: 480px) {
+  .login-form {
+    padding: 15px;
+    border-radius: 20px;
+  }
+
+  .login-header {
+    font-size: 22px;
+  }
+
+  .login-btn {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
 /* Header */
-.header-container{
+.header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: aqua;
   padding: 10px 20px;
-
+  flex-wrap: wrap; /* Makes items wrap on small screens */
 }
-.head-nav a button, #dropdown{
-  border-radius: 5px;
+
+/* Logo styling */
+.head-logo {
+  color: rgb(51, 0, 235);
+  font-size: 28px;
+}
+
+/* Navigation container */
+.head-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Buttons & Dropdown */
+.head-nav a button,
+#dropdown {
+  border-radius: 50px;
   background-color: orange;
   border: 2px solid transparent;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
-  border-radius: 50px;
-  padding: 15px 20px;
+  padding: 12px 18px;
   font-size: 16px;
   transition: ease-in-out 0.3s;
+  cursor: pointer;
 }
-.head-nav a button:hover{
-   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
-   transform: translateY(-5px);
-}
-#dropdown:hover{
+
+/* Hover effects */
+.head-nav a button:hover,
+#dropdown:hover {
   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
-   transform: translateY(-5px);
+  transform: translateY(-5px);
 }
-.head-nav a{
-  padding :10px;
+
+/* Navigation links padding */
+.head-nav a {
+  padding: 10px 0;
 }
-.head-logo{
-  color: rgb(51, 0, 235);
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  .head-nav {
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 10px;
+  }
+
+  .head-nav a button,
+  #dropdown {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .head-logo {
+    font-size: 24px;
+  }
 }
+
+@media (max-width: 480px) {
+  .head-nav {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .head-nav a button,
+  #dropdown {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  .head-logo {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+}
+
 
 
 /* admin panel */
@@ -97,21 +210,22 @@
 .admin-container {
   display: flex;
   min-height: 100vh;
-  
   background-color: #f1f5f9;
+  flex-wrap: wrap;
 }
 
-
+/* Sidebar */
 .admin-sidebar {
   width: 240px;
   background-color: #1e293b;
   color: white;
   padding: 30px 20px;
+  transition: transform 0.3s ease-in-out;
 }
 
 .product-logo {
   font-size: 28px;
-  font-weight:800;
+  font-weight: 800;
   margin-bottom: 40px;
   color: aliceblue;
 }
@@ -120,60 +234,112 @@
   list-style: none;
   margin: 20px 0;
   cursor: pointer;
-  transition: color 0.3s ease;
   padding: 10px;
-  
+  transition: color 0.3s ease;
 }
-.link{
+.link {
   text-decoration: none;
   color: white;
 }
-
 .admin-nav-links li:hover {
   color: #38bdf8;
   transform: translateY(-2px);
 }
 
+/* Main content */
 .admin-main {
   flex: 1;
   padding: 40px;
   background-color: #f8fafc;
 }
-
 .admin-main h1 {
   font-size: 28px;
   margin-bottom: 30px;
 }
 
+/* Cards */
 .admin-cards {
   display: flex;
   justify-content: space-around;
-  flex-grow: 1;
- 
+  flex-wrap: wrap;
+  gap: 20px;
 }
-
 .admin-card {
-  width: 20%;
+  flex: 1 1 200px;
   background-color: white;
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   transition: ease-in-out 0.3s;
 }
-.admin-card:hover{
-   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+.admin-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
-
 .admin-card h3 {
   font-size: 18px;
   margin-bottom: 10px;
   color: #334155;
 }
-
 .admin-card p {
   font-size: 20px;
   font-weight: bold;
   color: #0f172a;
+}
+
+/* ===== Responsive Styles ===== */
+@media (max-width: 1024px) {
+  .admin-sidebar {
+    position: fixed;
+    left: -240px;
+    top: 0;
+    height: 100%;
+    z-index: 1000;
+  }
+  .admin-sidebar.active {
+    left: 0;
+  }
+  .admin-main {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-main h1 {
+    font-size: 22px;
+  }
+  .admin-card {
+    flex: 1 1 100%;
+  }
+}
+
+/* Hamburger menu button */
+.menu-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .menu-btn {
+    display: block;
+  }
+
+  .admin-sidebar {
+    position: fixed;
+    left: -240px;
+    top: 0;
+    height: 100%;
+    z-index: 1000;
+    transition: left 0.3s ease-in-out;
+  }
+
+  .admin-sidebar.active {
+    left: 0;
+  }
 }
 
 /* ProductManagement */
@@ -752,34 +918,34 @@ form button:hover {
   background-color: #d97706;
 }
 /* signup */
-.sign-container{
+.sign-container {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: darkgray;
-
+  padding: 20px;
 }
-.sign-form{
+
+.sign-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 40%;
   background-color: rgb(145, 187, 187);
-  padding: 20px 40px;
-  border: 5px transparent solid;
+  padding: 30px 40px;
   border-radius: 30px;
   box-shadow: 0px 5px 10px rgb(12, 16, 16);
   transition: ease-in-out 0.3s;
-  height: 80%;
 }
-.sign-form:hover{
+
+.sign-form:hover {
   box-shadow: 0px 15px 30px rgb(12, 16, 20);
   transform: translateY(-5px);
 }
-.sign-input{
+
+.sign-input {
   padding: 10px;
-  border: 5px transparent solid;
   border-radius: 30px;
   margin-top: 20px;
   width: 80%;
@@ -787,26 +953,73 @@ form button:hover {
   transition: ease-in-out 0.3s;
 }
 
-.sign-btn:hover{
+.sign-input:hover {
   box-shadow: 0px 15px 30px rgb(12, 16, 20);
   transform: translateY(-2px);
-  background-color: cornflowerblue;
 }
-.sign-btn{
+
+.sign-btn {
   padding: 10px;
   margin-top: 20px;
-  width: 30%;
-  border: 5px transparent solid;
+  width: 40%;
   border-radius: 30px;
   box-shadow: 0px 5px 10px rgb(12, 16, 16);
   transition: ease-in-out 0.3s;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
 }
-.sign-input:hover{
+
+.sign-btn:hover {
+  background-color: cornflowerblue;
   box-shadow: 0px 15px 30px rgb(12, 16, 20);
   transform: translateY(-2px);
 }
+
+.sign-link {
+  margin-top: 15px;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* ======== Responsive Breakpoints ======== */
+@media (max-width: 1024px) {
+  .sign-form {
+    width: 60%;
+    padding: 20px 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sign-form {
+    width: 80%;
+    height: auto;
+  }
+  .sign-btn {
+    width: 60%;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sign-form {
+    width: 95%;
+    padding: 20px;
+    border-radius: 15px;
+  }
+  .sign-input {
+    width: 100%;
+    font-size: 14px;
+  }
+  .sign-btn {
+    width: 80%;
+    font-size: 14px;
+  }
+}
+
 /* AdimnLayout */
 /* Sidebar styles */
 .adminlay-sidebar {
