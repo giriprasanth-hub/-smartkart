@@ -14,10 +14,10 @@ function Header() {
         // Navigate to login page based on selected role
         switch (selectedRole) {
             case 'retailer':
-                window.location.href = '/adminapp'; // or '/retailer/login' if that’s your path
+                window.location.href = '/adminapp'; 
                 break;
             case 'user':
-                window.location.href = '/userapp'; // or '/user/login'
+                window.location.href = '/userapp'; 
                 break;
             default:
                 break;
